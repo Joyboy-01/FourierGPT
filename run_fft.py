@@ -149,7 +149,7 @@ class FFTProcessor(object):
         else:
             sp_x = np.abs(fft_res) # equivalent to np.sqrt(fft_res.real**2 + fft_res.imag**2)
         return freq_x[len(freq_x)//2:], sp_x[len(sp_x)//2:]
-    
+    # question:这里[i] * len(f)意味着序列ID会重复len(f)次但是为什么sid都一样长呢？为什么序列不完整呢？
     def _create_fft_df(self, freqs, powers, sids=None):
         if sids is not None:
             df = pd.DataFrame.from_dict({
